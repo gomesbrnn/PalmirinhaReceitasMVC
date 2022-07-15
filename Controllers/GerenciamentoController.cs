@@ -10,8 +10,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace DESAFIO_MVC.Controllers
 {
-    // [Authorize(Policy = "AdminRole")]
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "AdminRole")]
     public class GerenciamentoController : Controller
     {
         private readonly ApplicationDbContext database;
