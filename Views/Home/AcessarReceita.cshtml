@@ -1,0 +1,99 @@
+@model DESAFIO_MVC.Models.Receita
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Receitas";
+}
+
+<head>
+    <style>
+        .center {
+            width: 45%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #receita-img {
+            border-radius: 10px;
+        }
+
+        .card-img-top {
+            margin-top: 5%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<div id="pagetitle" class="text-center">
+    <h2 class="display-4" style="color:#fc6c2c;">@Model.Nome</h2>
+</div>
+<hr>
+<br>
+
+<div class="card-group">
+    <div class="card">
+        <img class="card-img-top"
+            src="https://static.vecteezy.com/system/resources/previews/002/205/951/non_2x/stopwatch-timer-icon-free-vector.jpg"
+            alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title" style="color:#fc6c2c;">Preparo</h5>
+            <p class="card-text"><small class="text-muted"><strong>@Model.TempoDePreparo</strong></small></p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/4477/4477348.png" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title" style="color:#fc6c2c;">Serve</h5>
+            <p class="card-text"><small class="text-muted"><strong>Até @Model.QtdPorcao
+                        porções</strong></small></p>
+        </div>
+    </div>
+    <div class="card">
+        <img class="card-img-top" src="https://cdn-icons-png.flaticon.com/512/3461/3461980.png" alt="Card image cap">
+        <div class="card-body" style="color:#fc6c2c;">
+            <h5 class="card-title">Dificuldade</h5>
+            <p class="card-text"><small class="text-muted"><strong>@Model.Dificuldade</strong></small></p>
+        </div>
+    </div>
+</div>
+
+<br>
+<br>
+
+<div>
+    <img src="@Model.Imagem" alt="Paris" class="center" id="receita-img">
+</div>
+<br> <br>
+
+<div>
+    <p>@Model.Descricao</p>
+</div>
+<br>
+<hr>
+
+<h3 class="display-4" style="color:#fc6c2c;;">Receita</h3>
+<br>
+
+<div class="card">
+    <h5 class="card-header" style="color:#e25822;">Ingredientes</h5>
+    <div class="card-body">
+        <p class="card-text">@Html.Raw(@Model.Ingrediente)</p>
+    </div>
+</div>
+
+<br> <br>
+
+<div class="card">
+    <h5 class="card-header" style="color:#e25822;">Modo de Preparo</h5>
+    <div class="card-body">
+        <p class="card-text">@Html.Raw(@Model.ModoDePreparo)</p>
+    </div>
+</div>

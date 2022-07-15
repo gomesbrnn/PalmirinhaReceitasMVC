@@ -1,0 +1,35 @@
+@model IEnumerable<DESAFIO_MVC.Models.Receita>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Receitas";
+}
+
+<div class="text-center">
+    <h2 class="display-4" style="color:#fc6c2c;">Lista de receitas</h2>
+</div>
+<hr>
+
+<div class="row">
+    @foreach (var receita in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src=" @receita.Imagem" alt="Card image cap" height="210px">
+                <div class="card-body">
+                    <p class="card-text">@receita.Nome</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <a class="btn btn-sm btn-outline-light" asp-action="AcessarReceita" asp-controller="Home"
+                            asp-route-id="@receita.Id" style="background-color:#fc6c2c;">Visualizar</a>
+                        </div>
+                        <small style="color:#e25822;">leitura - 5 mins</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

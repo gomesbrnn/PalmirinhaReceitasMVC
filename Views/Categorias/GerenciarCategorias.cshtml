@@ -1,0 +1,65 @@
+@model IEnumerable<DESAFIO_MVC.Models.Categoria>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#categorias').DataTable({
+            "language": {
+                "lengthMenu": "Exibindo _MENU_ registros por página",
+                "zeroRecords": "Desculpe, nada foi encontrado",
+                "info": "Exibindo Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": " Próximo",
+                    "previous": "Anterior "
+                }
+            }
+        });
+    });
+</script>
+
+
+<h2>Categorias</h2>
+<hr>
+
+<table id="categorias" class="table table-striped table-dark">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var categoria in Model)
+        {
+            <tr>
+                <th scope="row">@categoria.Id</th>
+                <td>@categoria.Nome</td>
+                <td>
+                    <a asp-action="AtualizarCategoria" asp-controller="Categorias" asp-route-id="@categoria.Id"
+                    class="btn btn-light btn-sm">Editar</a>
+
+                    <form asp-action="Deletar" asp-controller="Categorias" asp-route-id="@categoria.Id"
+                    style="display: inline;" method="post">
+                        <button class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>
+
+<a asp-action="NovaCategoria" asp-controller="Categorias" class="btn btn-dark">Nova categoria</a>

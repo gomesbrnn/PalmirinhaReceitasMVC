@@ -1,0 +1,81 @@
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Gerenciamento";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Gerenciamento</h1>
+</div>
+<br> <br> <br>
+
+<div class="row">
+
+    <style>
+        .row {
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-header {
+            text-align: center;
+        }
+
+        .card-text {
+            display: flex;
+            justify-content: center;
+        }
+
+        .endpage {
+            text-align: center;
+        }
+    </style>
+
+
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header"><strong>Categorias</strong></div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                    <a asp-action="GerenciarCategorias" asp-controller="Categorias" class="btn btn-light"
+                        style="display: flex;">Gerenciar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header"><strong>Receitas</strong></div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                    <a asp-action="GerenciarReceitas" asp-controller="Receitas" class="btn btn-light"
+                        style="display: flex;">Gerenciar</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-3 col-sm-6 mb-3">
+        <div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header"><strong>Historico de Acessos</strong></div>
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                    <a asp-action="VisualizarAcessos" asp-controller="HistoricoAcessos" class="btn btn-light"
+                        style="display: flex;">Visualizar</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+<br><br><br>
+
+<footer class="endpage">
+    <h3>Clique nos cards acima para gerenciar os dados da aplicação. ☝️</h3>
+</footer>

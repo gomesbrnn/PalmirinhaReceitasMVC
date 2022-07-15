@@ -1,0 +1,177 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <br>
+    <div class="text-center">
+        <div class="container"></div>
+        <h1 class="jumbotron-heading" style="color:#e25822;">Seja Bem vindo(a)! 👩‍🍳</h1>
+        <p class="lead text-muted">Aqui inovamos todos os dias com receitas deliciosas que vão diferenciar
+            seu dia!
+            <br>
+            Clique abaixo para acessar e visualizar nossas receitas. 👇
+        </p>
+    </div>
+
+    <br>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://s2.glbimg.com/GToJPVardYjpzSeMfNdhCRqp6NU=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2022/F/5/hm5zNWRiAawYNSghKZbw/capa-materia-gshow-2022-02-16t145245.399.png"
+                        alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria você irá encontrar as melhores receitas dos pratos mais
+                                populares de massas entre os brasileiros.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group" style="background-color:#fbf3bc;">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/04/torta-chocolate-cremosa-1.jpeg?w=876&h=484&crop=1"
+                        alt="Card image cap" height="190px">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria das Receitas Da Palmirinha, você irá encontrar as mais
+                                variadas delícias de doces e sobremesas!</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://i.pinimg.com/originals/a6/51/98/a65198fe53e8f784ee10ffee86fdce63.jpg"
+                        alt="Card image cap" height="190px">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria você irá encontrar comidas típicas de vários países de
+                                forma simples e rápida. Sem muitos segredos.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+
+    <br>
+    <div class="text-center">
+        <div class="container"></div>
+        <h1 class="jumbotron-heading" style="color:#e25822;">Seja Bem vindo(a)! 👩‍🍳</h1>
+        <p class="lead text-muted">Aqui inovamos todos os dias com receitas deliciosas que vão diferenciar
+            seu dia!
+            <br>
+            Faça o login ou Registre-se para visualizar nossas receitas. 👇
+        </p>
+        <p>
+            <a class="btn btn-light" asp-area="Identity" asp-page="/Account/Login"
+            style="color:#e25822;"><strong>Entrar</strong></a>
+            <a class="btn btn-light my-2" asp-area="Identity" asp-page="/Account/Register"
+            style="color:#e25822;"><strong>Criar conta</strong></a>
+        </p>
+    </div>
+    <br>
+
+    <div class="album py-5 bg-light">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://s2.glbimg.com/GToJPVardYjpzSeMfNdhCRqp6NU=/0x0:1080x608/924x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_e84042ef78cb4708aeebdf1c68c6cbd6/internal_photos/bs/2022/F/5/hm5zNWRiAawYNSghKZbw/capa-materia-gshow-2022-02-16t145245.399.png"
+                        alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria você irá encontrar as melhores receitas dos pratos mais
+                                populares de massas entre os brasileiros.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://viagemegastronomia.cnnbrasil.com.br/wp-content/uploads/sites/5/2022/04/torta-chocolate-cremosa-1.jpeg?w=876&h=484&crop=1"
+                        alt="Card image cap" height="190px">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria das Receitas Da Palmirinha, você irá encontrar as mais
+                                variadas delícias de doces e sobremesas!</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"
+                        src="https://i.pinimg.com/originals/a6/51/98/a65198fe53e8f784ee10ffee86fdce63.jpg"
+                        alt="Card image cap" height="190px">
+                        <div class="card-body">
+                            <p class="card-text">Nessa categoria você irá encontrar comidas típicas de vários países de
+                                forma simples e rápida. Sem muitos segredos.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a class="btn btn-sm btn-outline-light" asp-action="ReceitasHome" asp-controller="Home"
+                                    style="background-color:#fc6c2c;">Visualizar</a>
+                                </div>
+                                <small style="color:#e25822;">9 mins</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+}

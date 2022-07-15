@@ -1,0 +1,33 @@
+@model DESAFIO_MVC.DTO.CategoriaDTO
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Atualizar Categoria";
+}
+
+<h2>Atualizar categoria</h2>
+<hr>
+
+<form class="form-horizontal" asp-action="Atualizar" asp-controller="Categorias" method="post">
+
+    <div class="form-group">
+        <label asp-for="Id">ID</label>
+        <input type="number" class="form-control" asp-for="Id" readonly>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Nome">Nome</label>
+        <input type="text" class="form-control" asp-for="Nome" placeholder="Ex: Bebidas">
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Imagem">Imagem</label>
+        <input type="text" class="form-control" asp-for="Imagem" placeholder="Url da imagem">
+    </div>
+
+    <button class="btn btn-dark">Atualizar</button>
+
+</form>

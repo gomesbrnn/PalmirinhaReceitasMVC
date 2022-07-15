@@ -1,0 +1,72 @@
+@model IEnumerable<DESAFIO_MVC.Models.Receita>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Receitas";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#receitas').DataTable({
+            "language": {
+                "lengthMenu": "Exibindo _MENU_ registros por página",
+                "zeroRecords": "Desculpe, nada foi encontrado",
+                "info": "Exibindo Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": " Próximo",
+                    "previous": "Anterior "
+                }
+            }
+        });
+    });
+</script>
+
+<h2>Receitas</h2>
+<hr>
+
+<table id="receitas" class="table table-striped table-dark">
+
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Categoria</th>
+            <th scope="col">Tempo de Preparo</th>
+            <th scope="col">Dificulade</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Opções</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var receita in Model)
+        {
+            <tr>
+                <th scope="row">@receita.Id</th>
+                <td>@receita.Nome</td>
+                <td>@receita.Categoria.Nome</td>
+                <td>@receita.TempoDePreparo</td>
+                <td>@receita.Dificuldade</td>
+                <td><a asp-action="AcessarReceita" asp-controller="Home" asp-route-id="@receita.Id"
+                    class="btn btn-light btn-sm">Visualizar</a></td>
+                <td>
+                    <a asp-action="AtualizarReceita" asp-controller="Receitas" asp-route-id="@receita.Id"
+                    class="btn btn-light btn-sm">Editar</a>
+
+                    <form asp-action="Deletar" asp-controller="Receitas" asp-route-id="@receita.Id" style="display: inline;"
+                    method="post">
+                        <button class="btn btn-danger btn-sm">Deletar</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="NovaReceita" asp-controller="Receitas" class="btn btn-dark">Nova receita</a>

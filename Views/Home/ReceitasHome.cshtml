@@ -1,0 +1,33 @@
+@model IEnumerable<DESAFIO_MVC.Models.Categoria>
+
+@{
+    Layout = "_Layout";
+}
+
+@{
+    ViewData["Title"] = "Receitas";
+}
+
+<div class="text-center">
+    <h2 class="display-4" style="color:#fc6c2c;">Escolha sua Receita</h2>
+    <h4 style="color:#e25822;">Navegue por categoria</h3>
+</div>
+<hr>
+<br><br>
+<div class="row">
+    @foreach (var categoria in Model)
+    {
+        <div class="col-lg-4">
+            <img src="@categoria.Imagem" class="bd-placeholder-img rounded-circle" width="140" height="140"
+            xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
+            preserveAspectRatio="xMidYMid slice" focusable="false">
+
+            <h2>@categoria.Nome</h2>
+            <p>Deliciosas receitas de @categoria.Nome que tornam o seu dia mais gostoso, e deixam as refeições com um toque
+                especial!</p>
+            <p><a class="btn btn-light" style="background-color:#fc6c2c; color:white;" asp-action="ListarReceitas"
+                asp-controller="Home" asp-route-id="@categoria.Id">Ver
+                    Detalhes &raquo;</a></p>
+        </div>
+    }
+</div>

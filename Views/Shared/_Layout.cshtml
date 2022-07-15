@@ -1,0 +1,97 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3"
+            style="background-color:#fc6c2c;">
+
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index" style="color: white;">
+                    <img src="/img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Palmirinha Receitas
+                </a>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home"
+                                asp-action="ReceitasHome">&nbsp;&nbsp;&nbsp;<strong>Receitas</strong></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListarReceitas"
+                                asp-route-id="1"><em><b>Massas</b></em> </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListarReceitas"
+                                asp-route-id="2"><em><b> Pratos Caseiros</b></em></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="ListarReceitas"
+                                asp-route-id="3"><em><b>Sobremesas</b></em></a>
+                        </li>
+
+                        <li class="nav-item">
+                            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </p>
+                        </li>
+
+                        <li class="nav-item">
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                if (User.Identity.Name == "admin@gft.com")
+                                {
+                                    <a class="nav-link text-light" asp-area="" asp-controller="Gerenciamento"
+                                asp-action="Index"><i><b>Gerenciamento</b></i></a>
+                                }
+                            }
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" id="contentbody" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - PALMIRINHA_RECEITAS - <a asp-area="" asp-controller="Home" asp-action="Index">Sobre</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>

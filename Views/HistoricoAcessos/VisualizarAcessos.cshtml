@@ -1,0 +1,48 @@
+@model IEnumerable<DESAFIO_MVC.Models.HistoricoAcesso>
+
+@{
+    Layout = "_Layout";
+}
+
+<script>
+    $(document).ready(function () {
+        $('#acessos').DataTable({
+            "language": {
+                "lengthMenu": "Exibindo _MENU_ registros por página",
+                "zeroRecords": "Desculpe, nada foi encontrado",
+                "info": "Exibindo Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "search": "Buscar",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": " Próximo",
+                    "previous": "Anterior "
+                }
+            }
+        });
+    });
+</script>
+
+<h2>Histórico de Acesso</h2>
+<hr>
+
+<table id="acessos" class="table table-striped table-dark">
+    <thead>
+        <tr>
+            <th scope="col">Usuário</th>
+            <th scope="col">Receita</th>
+            <th scope="col">D/H</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var acesso in Model)
+        {
+            <tr>
+                <td>@acesso.Usuario</td>
+                <td>@acesso.Receita.Nome</td>
+                <td>@acesso.DataAcesso</td>
+            </tr>
+        }
+    </tbody>
+</table>
